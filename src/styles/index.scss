@@ -60,16 +60,14 @@ body {
     }
 
     $days: (mon, tue, wed, thu, fri, sat, sun);
-    $index: 0;
 
     @each $day in $days {
+      $index: list.index($days, $day) - 1; // Substituído index por list.index
       &--start-day-#{$day} {
         .calendar__day:first-child {
           margin-left: calc($index * 101px);
         }
       }
-
-      $index: $index + 1;
     }
   }
 }
